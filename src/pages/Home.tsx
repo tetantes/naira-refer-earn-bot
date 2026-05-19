@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Wallet, TrendingUp, Users, Award, ArrowDown, Gift, Zap, Trophy } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { TrendingUp, Users, Award, ArrowDown, Gift, Zap, Trophy } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import WebApp from '@twa-dev/sdk';
 
