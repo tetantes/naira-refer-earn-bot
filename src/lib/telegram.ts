@@ -7,11 +7,13 @@ export const initTelegram = () => {
 };
 
 export const getUser = () => WebApp.initDataUnsafe.user;
-export const getStartParam = () => {
-  return WebApp.startParam || new URLSearchParams(window.location.search).get('tgWebAppStartParam');
-};
 
-export const notifyUpline = (message: string) => {
-  // Backend will handle actual Telegram notification
-  console.log('Notify upline:', message);
+export const getStartParam = () => {
+  // Preferred way: from initDataUnsafe
+  if (WebApp.initDataUnsafe.start_param) {
+    return WebApp.initDataUnsafe.start_param;
+  }
+  // Fallback to URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('tgWebAppStartParam') || urlParams.get('startapp');
 };
